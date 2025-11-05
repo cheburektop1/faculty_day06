@@ -10,7 +10,15 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }
 
-rootProject.name = "school57kotlin"
+rootProject.name = "faculty_day"
 include("lesson1")
-include("lesson2")
-include("lesson3")
+//include("lesson2")
+//include("lesson3")
+//include("lesson4")
+//include("lesson5")
+//include("lesson6")
+//include("lesson7")
+//include("simple")
+//include("lesson8")
+//include("lesson9")
+//include("lesson10")
