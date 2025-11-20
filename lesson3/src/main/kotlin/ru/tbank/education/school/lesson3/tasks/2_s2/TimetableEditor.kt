@@ -1,10 +1,12 @@
 data class Lesson(val subject: String, val time: String)
-
+var lessons = mutableListOf<Lesson>()
 class TimetableEditor {
-    private val lessons = mutableListOf<Lesson>()
+    // private var lessons = mutableListOf<Lesson>()
 
     fun addLesson(subject: String, time: String) {
-        lessons.add(Lesson(subject, time))
+        if (hasGaps()) {
+            lessons.add(Lesson(subject, time))
+        }
     }
 
     fun removeLesson(subject: String) {
@@ -16,13 +18,20 @@ class TimetableEditor {
         // считаем, что если уроков меньше 4 за день — есть "дыры"
         return lessons.size < 4
     }
+}
 
+class TimetableNotifications {
+    // private val lessons = mutableListOf<Lesson>()
     fun notifyStudentsIfChanged(studentEmails: List<String>) {
         println("Расписание изменено, отправляю письма:")
         for (email in studentEmails) {
             println("Email на $email: Расписание уроков обновлено!")
         }
     }
+}
+
+class Lessons {
+    //public val lessons = mutableListOf<Lesson>()
 
     fun printTimetable() {
         println("Текущее расписание:")
@@ -30,4 +39,12 @@ class TimetableEditor {
             println("${lesson.time}: ${lesson.subject}")
         }
     }
+}
+
+fun main() {
+    val lesson = TimetableEditor()
+    lesson.addLesson("math", "12.25")
+    lesson.addLesson("informatics", "12.25")
+    val timetable = Lessons()
+    println(timetable.printTimetable())
 }
